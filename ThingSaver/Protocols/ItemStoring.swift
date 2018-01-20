@@ -29,7 +29,12 @@ extension ItemStoring {
 
     func saveData() {
         let defaults = UserDefaults.standard
-        let data = NSKeyedArchiver.archivedData(withRootObject: items)
-        defaults.set(data, forKey: savedKeyName)
+        let encoder = JSONEncoder()
+
+        if let data = try? encoder.encode(items) {
+            defaults.set(data, forKey: savedKeyName)
+        } else {
+            fatalError("Couldn't prepare items for saving.")
+        }
     }
 }
