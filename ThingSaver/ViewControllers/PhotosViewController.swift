@@ -9,7 +9,8 @@
 import QuickLook
 import UIKit
 
-class PhotosViewController: UICollectionViewController, QLPreviewControllerDataSource {
+class PhotosViewController: UICollectionViewController, QLPreviewControllerDataSource, ItemStoring {
+    typealias itemType = Photo
     var items = [Photo]()
     var selectedItem: Photo?
     var savedKeyName = "SavedPhotos"
@@ -45,22 +46,6 @@ class PhotosViewController: UICollectionViewController, QLPreviewControllerDataS
         }
 
         return cell
-    }
-
-    func loadData() {
-        let defaults = UserDefaults.standard
-
-        if let savedData = defaults.object(forKey: savedKeyName) as? Data {
-            if let savedItems = NSKeyedUnarchiver.unarchiveObject(with: savedData) as? [Photo] {
-                items = savedItems
-            }
-        }
-    }
-
-    func saveData() {
-        let defaults = UserDefaults.standard
-        let data = NSKeyedArchiver.archivedData(withRootObject: items)
-        defaults.set(data, forKey: savedKeyName)
     }
 
     @objc func addExampleData() {

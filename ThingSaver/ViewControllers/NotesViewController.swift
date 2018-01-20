@@ -9,9 +9,11 @@
 import QuickLook
 import UIKit
 
-class NotesViewController: UITableViewController, QLPreviewControllerDataSource {
-    var items = [Note]()
-    var selectedItem: Note?
+class NotesViewController: UITableViewController, QLPreviewControllerDataSource, ItemStoring {
+    typealias itemType = Note
+
+    var items = [itemType]()
+    var selectedItem: itemType?
     var savedKeyName = "SavedNotes"
 
     override func viewDidLoad() {
@@ -45,22 +47,6 @@ class NotesViewController: UITableViewController, QLPreviewControllerDataSource 
         }
 
         return cell
-    }
-
-    func loadData() {
-        let defaults = UserDefaults.standard
-
-        if let savedData = defaults.object(forKey: savedKeyName) as? Data {
-            if let savedItems = NSKeyedUnarchiver.unarchiveObject(with: savedData) as? [Note] {
-                items = savedItems
-            }
-        }
-    }
-
-    func saveData() {
-        let defaults = UserDefaults.standard
-        let data = NSKeyedArchiver.archivedData(withRootObject: items)
-        defaults.set(data, forKey: savedKeyName)
     }
 
     @objc func addExampleData() {

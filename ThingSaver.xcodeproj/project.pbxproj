@@ -12,6 +12,7 @@
 		1739623A879E451E642C0CBD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 173968A567C2A3890813B2D9 /* LaunchScreen.storyboard */; };
 		17396265E5DE42D6F3E8C99B /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17396A9C93756CDAAED9A05F /* Helper.swift */; };
 		173963295EF0FC61BAD4D6EF /* example.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1739697C860F9A740F410813 /* example.jpg */; };
+		1739634CE513296D2DB05A36 /* ItemStoring.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173968FBF3487F869E4CBA0B /* ItemStoring.swift */; };
 		173963886EF923C80089B11F /* NotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173967BB876BD723CE469575 /* NotesViewController.swift */; };
 		1739646FCDB8D1C88DF4E2AF /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17396E7063371554143FC75B /* Movie.swift */; };
 		173964AF297931D5240432DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17396427A314426453006E37 /* Assets.xcassets */; };
@@ -39,6 +40,7 @@
 		173965209FDD98F29A8FD625 /* MasterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
 		1739669620A3CC851B697504 /* Song.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
 		173967BB876BD723CE469575 /* NotesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotesViewController.swift; sourceTree = "<group>"; };
+		173968FBF3487F869E4CBA0B /* ItemStoring.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemStoring.swift; sourceTree = "<group>"; };
 		17396976455C315CBACC62A4 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1739697C860F9A740F410813 /* example.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = example.jpg; sourceTree = "<group>"; };
 		17396A9C93756CDAAED9A05F /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
@@ -82,6 +84,14 @@
 				17396E7063371554143FC75B /* Movie.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		1739616491E06586D9012B3D /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				173968FBF3487F869E4CBA0B /* ItemStoring.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		173963A4ADE1623D47DA3786 /* ViewControllers */ = {
@@ -169,6 +179,7 @@
 				17396758466FF823CB68AA66 /* Storyboards */,
 				173963A4ADE1623D47DA3786 /* ViewControllers */,
 				1739610AE51FB654012F6B6E /* Model */,
+				1739616491E06586D9012B3D /* Protocols */,
 			);
 			path = ThingSaver;
 			sourceTree = "<group>";
@@ -262,6 +273,7 @@
 				173966350B2387A2A9A2A840 /* Note.swift in Sources */,
 				17396EB0AD8EAEF61EDCE1EF /* Photo.swift in Sources */,
 				1739646FCDB8D1C88DF4E2AF /* Movie.swift in Sources */,
+				1739634CE513296D2DB05A36 /* ItemStoring.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -398,12 +410,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = B5C26XE59E;
-				INFOPLIST_FILE = ThingSaver/Info.plist;
+				DEVELOPMENT_TEAM = 9YH3LZQ69V;
+				INFOPLIST_FILE = "$(SRCROOT)/ThingSaver/Configuration/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.hackingwithswift.ThingSaver;
+				PRODUCT_BUNDLE_IDENTIFIER = com.arturazarov.THingSaver;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 2;
 			};
@@ -413,12 +427,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = B5C26XE59E;
-				INFOPLIST_FILE = ThingSaver/Info.plist;
+				DEVELOPMENT_TEAM = 9YH3LZQ69V;
+				INFOPLIST_FILE = "$(SRCROOT)/ThingSaver/Configuration/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.hackingwithswift.ThingSaver;
+				PRODUCT_BUNDLE_IDENTIFIER = com.arturazarov.THingSaver;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 2;
 			};

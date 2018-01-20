@@ -9,9 +9,11 @@
 import QuickLook
 import UIKit
 
-class MoviesViewController: UICollectionViewController, QLPreviewControllerDataSource {
-    var items = [Movie]()
-    var selectedItem: Movie?
+class MoviesViewController: UICollectionViewController, QLPreviewControllerDataSource, ItemStoring {
+    typealias itemType = Movie
+
+    var items = [itemType]()
+    var selectedItem: itemType?
     var savedKeyName = "SavedMovies"
 
     override func viewDidLoad() {
@@ -41,21 +43,7 @@ class MoviesViewController: UICollectionViewController, QLPreviewControllerDataS
         return cell
     }
 
-    func loadData() {
-        let defaults = UserDefaults.standard
 
-        if let savedData = defaults.object(forKey: savedKeyName) as? Data {
-            if let savedItems = NSKeyedUnarchiver.unarchiveObject(with: savedData) as? [Movie] {
-                items = savedItems
-            }
-        }
-    }
-
-    func saveData() {
-        let defaults = UserDefaults.standard
-        let data = NSKeyedArchiver.archivedData(withRootObject: items)
-        defaults.set(data, forKey: savedKeyName)
-    }
 
     @objc func addExampleData() {
         guard let sourceURL = Bundle.main.url(forResource: "example", withExtension: "mp4") else {
@@ -68,7 +56,7 @@ class MoviesViewController: UICollectionViewController, QLPreviewControllerDataS
 
         do {
             try fm.copyItem(at: sourceURL, to: destURL)
-            let item = Movie(filename: filename)
+            let item = itemType(filename: filename)
             items.append(item)
             saveData()
 

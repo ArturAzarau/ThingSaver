@@ -9,7 +9,9 @@
 import QuickLook
 import UIKit
 
-class SongsViewController: UITableViewController, QLPreviewControllerDataSource {
+class SongsViewController: UITableViewController, QLPreviewControllerDataSource, ItemStoring {
+    typealias itemType = Song
+
     var items = [Song]()
     var selectedItem: Song?
     var savedKeyName = "SavedSongs"
@@ -38,22 +40,6 @@ class SongsViewController: UITableViewController, QLPreviewControllerDataSource 
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         cell.textLabel?.text = "Play song"
         return cell
-    }
-
-    func loadData() {
-        let defaults = UserDefaults.standard
-
-        if let savedData = defaults.object(forKey: savedKeyName) as? Data {
-            if let savedItems = NSKeyedUnarchiver.unarchiveObject(with: savedData) as? [Song] {
-                items = savedItems
-            }
-        }
-    }
-
-    func saveData() {
-        let defaults = UserDefaults.standard
-        let data = NSKeyedArchiver.archivedData(withRootObject: items)
-        defaults.set(data, forKey: savedKeyName)
     }
 
     @objc func addExampleData() {
