@@ -9,7 +9,7 @@
 import QuickLook
 import UIKit
 
-class MoviesViewController: UICollectionViewController, QLPreviewControllerDataSource, ItemStoring {
+class MoviesViewController: UICollectionViewController, QLPreviewControllerDataSource, ItemStoring, NavigationBarStyling {
     typealias itemType = Movie
 
     var items = [itemType]()
@@ -22,12 +22,7 @@ class MoviesViewController: UICollectionViewController, QLPreviewControllerDataS
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addExampleData))
 
         navigationController?.navigationBar.isTranslucent = false
-        title = "MOVIES"
-
-        if let font = UIFont(name: "AvenirNext-Heavy", size: 30) {
-            let attrs = [NSAttributedStringKey.font: font]
-            navigationController?.navigationBar.titleTextAttributes = attrs
-        }
+        setCustomTitle(of: "MOVIES")
 
         loadData()
     }

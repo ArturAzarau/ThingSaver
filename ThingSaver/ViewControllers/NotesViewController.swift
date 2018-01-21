@@ -9,7 +9,7 @@
 import QuickLook
 import UIKit
 
-class NotesViewController: UITableViewController, QLPreviewControllerDataSource, ItemStoring {
+class NotesViewController: UITableViewController, QLPreviewControllerDataSource, ItemStoring, NavigationBarStyling {
     typealias itemType = Note
 
     var items = [itemType]()
@@ -18,16 +18,8 @@ class NotesViewController: UITableViewController, QLPreviewControllerDataSource,
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addExampleData))
-
-        navigationController?.navigationBar.isTranslucent = false
-        title = "NOTES"
-
-        if let font = UIFont(name: "AvenirNext-Heavy", size: 30) {
-            let attrs = [NSAttributedStringKey.font: font]
-            navigationController?.navigationBar.titleTextAttributes = attrs
-        }
+        setCustomTitle(of: "NOTES")
 
         loadData()
     }

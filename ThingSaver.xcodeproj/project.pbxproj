@@ -25,6 +25,7 @@
 		173966DA2EBB4024A4FD9389 /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1739669620A3CC851B697504 /* Song.swift */; };
 		1739699ADCFBB2FBDC70A62B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17396976455C315CBACC62A4 /* AppDelegate.swift */; };
 		17396A65C57435034B81D699 /* PhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173962E96D058F054410CE5A /* PhotosViewController.swift */; };
+		17396D054FF18D4102FD8512 /* NavigationBarStyling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17396EAF37A1DA75DEE58D41 /* NavigationBarStyling.swift */; };
 		17396E447E67704DFAEF158D /* SplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17396F473E1AA89ED0F16538 /* SplitViewController.swift */; };
 		17396E95E5D7C5367C0ACD05 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173965209FDD98F29A8FD625 /* MasterViewController.swift */; };
 		17396EB0AD8EAEF61EDCE1EF /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17396D9BBC8F2CD4221DE17A /* Photo.swift */; };
@@ -51,6 +52,7 @@
 		17396C531A5768E685C4EF04 /* example.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = example.mp3; sourceTree = "<group>"; };
 		17396D9BBC8F2CD4221DE17A /* Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		17396E7063371554143FC75B /* Movie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
+		17396EAF37A1DA75DEE58D41 /* NavigationBarStyling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationBarStyling.swift; sourceTree = "<group>"; };
 		17396EC1FF7CFE0736562D08 /* SongsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongsViewController.swift; sourceTree = "<group>"; };
 		17396F473E1AA89ED0F16538 /* SplitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplitViewController.swift; sourceTree = "<group>"; };
 		5190F5A41F9CB462005C8896 /* ThingSaver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ThingSaver.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -90,6 +92,7 @@
 			isa = PBXGroup;
 			children = (
 				173968FBF3487F869E4CBA0B /* ItemStoring.swift */,
+				17396EAF37A1DA75DEE58D41 /* NavigationBarStyling.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -274,6 +277,7 @@
 				17396EB0AD8EAEF61EDCE1EF /* Photo.swift in Sources */,
 				1739646FCDB8D1C88DF4E2AF /* Movie.swift in Sources */,
 				1739634CE513296D2DB05A36 /* ItemStoring.swift in Sources */,
+				17396D054FF18D4102FD8512 /* NavigationBarStyling.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

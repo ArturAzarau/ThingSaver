@@ -9,7 +9,7 @@
 import QuickLook
 import UIKit
 
-class SongsViewController: UITableViewController, QLPreviewControllerDataSource, ItemStoring {
+class SongsViewController: UITableViewController, QLPreviewControllerDataSource, ItemStoring, NavigationBarStyling {
     typealias itemType = Song
 
     var items = [Song]()
@@ -22,12 +22,7 @@ class SongsViewController: UITableViewController, QLPreviewControllerDataSource,
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addExampleData))
 
         navigationController?.navigationBar.isTranslucent = false
-        title = "SONGS"
-
-        if let font = UIFont(name: "AvenirNext-Heavy", size: 30) {
-            let attrs = [NSAttributedStringKey.font: font]
-            navigationController?.navigationBar.titleTextAttributes = attrs
-        }
+        setCustomTitle(of: "SONGS")
 
         loadData()
     }

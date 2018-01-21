@@ -9,7 +9,7 @@
 import QuickLook
 import UIKit
 
-class PhotosViewController: UICollectionViewController, QLPreviewControllerDataSource, ItemStoring {
+class PhotosViewController: UICollectionViewController, QLPreviewControllerDataSource, ItemStoring, NavigationBarStyling {
     typealias itemType = Photo
     var items = [Photo]()
     var selectedItem: Photo?
@@ -21,12 +21,7 @@ class PhotosViewController: UICollectionViewController, QLPreviewControllerDataS
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addExampleData))
 
         navigationController?.navigationBar.isTranslucent = false
-        title = "PHOTOS"
-
-        if let font = UIFont(name: "AvenirNext-Heavy", size: 30) {
-            let attrs = [NSAttributedStringKey.font: font]
-            navigationController?.navigationBar.titleTextAttributes = attrs
-        }
+        setCustomTitle(of: "PHOTOS")
 
         loadData()
     }
