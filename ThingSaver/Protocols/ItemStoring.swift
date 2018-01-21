@@ -4,6 +4,7 @@
 //
 
 import UIKit
+import QuickLook
 
 protocol ItemStoring: class {
     associatedtype itemType: Item
@@ -16,7 +17,7 @@ protocol ItemStoring: class {
     func saveData()
 }
 
-extension ItemStoring where Self: UIViewController{
+extension ItemStoring where Self: UIViewController, Self: QLPreviewControllerDataSource {
     func loadData() {
         let defaults = UserDefaults.standard
         let decoder = JSONDecoder()
@@ -53,5 +54,16 @@ extension ItemStoring where Self: UIViewController{
         items.append(item)
         saveData()
 
+    }
+
+    func selectItem(_ item: Int) {
+        selectedItem = items[item]
+
+        let previewController = PreviewViewController()
+        previewController.dataSource = self
+
+        let navController = UINavigationController(rootViewController: previewController)
+        navController.modalPresentationStyle = .formSheet
+        present(navController, animated: true)
     }
 }

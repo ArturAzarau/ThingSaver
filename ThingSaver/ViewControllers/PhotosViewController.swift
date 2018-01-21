@@ -54,14 +54,7 @@ class PhotosViewController: UICollectionViewController, QLPreviewControllerDataS
     }
 
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        selectedItem = items[indexPath.row]
-
-        let previewController = PreviewViewController()
-        previewController.dataSource = self
-
-        let navController = UINavigationController(rootViewController: previewController)
-        navController.modalPresentationStyle = .formSheet
-        present(navController, animated: true)
+        selectItem(indexPath.item)
     }
 
     func numberOfPreviewItems(in controller: QLPreviewController) -> Int {

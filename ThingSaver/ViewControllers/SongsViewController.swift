@@ -48,14 +48,7 @@ class SongsViewController: UITableViewController, QLPreviewControllerDataSource,
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectedItem = items[indexPath.row]
-
-        let previewController = PreviewViewController()
-        previewController.dataSource = self
-
-        let navController = UINavigationController(rootViewController: previewController)
-        navController.modalPresentationStyle = .formSheet
-        present(navController, animated: true)
+        selectItem(indexPath.row)
     }
 
     func numberOfPreviewItems(in controller: QLPreviewController) -> Int {
