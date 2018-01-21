@@ -14,6 +14,7 @@ class PhotosViewController: UICollectionViewController, QLPreviewControllerDataS
     var items = [Photo]()
     var selectedItem: Photo?
     var savedKeyName = "SavedPhotos"
+    var fileExtension: String = "jpg"
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,20 +45,8 @@ class PhotosViewController: UICollectionViewController, QLPreviewControllerDataS
     }
 
     @objc func addExampleData() {
-        guard let sourceURL = Bundle.main.url(forResource: "example", withExtension: "jpg") else {
-            fatalError("Unable to locate input file")
-        }
-
-        let filename = NSUUID().uuidString + ".jpg"
-        let destURL = Helper.getPathInDocumentsDirectory(filename)
-        let fm = FileManager.default
-
         do {
-            try fm.copyItem(at: sourceURL, to: destURL)
-            let item = Photo(filename: filename)
-            items.append(item)
-            saveData()
-
+            try addItem()
             collectionView?.insertItems(at: [IndexPath(item: items.count - 1, section: 0)])
         } catch {
             print("Failed to create item: \(error.localizedDescription)")

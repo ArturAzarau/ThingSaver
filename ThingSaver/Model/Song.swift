@@ -8,6 +8,6 @@
 
 import Foundation
 
-struct Song: Codable {
+struct Song: Codable, Item {
     var filename: String
 }

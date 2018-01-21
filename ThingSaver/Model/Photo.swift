@@ -8,6 +8,6 @@
 
 import Foundation
 
-struct Photo: Codable {
+struct Photo: Codable, Item {
     var filename: String
 }

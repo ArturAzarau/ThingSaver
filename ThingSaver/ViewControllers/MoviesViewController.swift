@@ -15,6 +15,7 @@ class MoviesViewController: UICollectionViewController, QLPreviewControllerDataS
     var items = [itemType]()
     var selectedItem: itemType?
     var savedKeyName = "SavedMovies"
+    var fileExtension: String = "mp4"
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,20 +42,8 @@ class MoviesViewController: UICollectionViewController, QLPreviewControllerDataS
 
 
     @objc func addExampleData() {
-        guard let sourceURL = Bundle.main.url(forResource: "example", withExtension: "mp4") else {
-            fatalError("Unable to locate input file")
-        }
-
-        let filename = NSUUID().uuidString + ".mp4"
-        let destURL = Helper.getPathInDocumentsDirectory(filename)
-        let fm = FileManager.default
-
         do {
-            try fm.copyItem(at: sourceURL, to: destURL)
-            let item = itemType(filename: filename)
-            items.append(item)
-            saveData()
-
+            try addItem()
             collectionView?.insertItems(at: [IndexPath(item: items.count - 1, section: 0)])
         } catch {
             print("Failed to create item: \(error.localizedDescription)")

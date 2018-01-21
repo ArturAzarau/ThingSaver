@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Note: Codable {
+struct Note: Codable, Item {
     var filename: String
 }
 

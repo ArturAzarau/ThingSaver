@@ -15,6 +15,7 @@ class SongsViewController: UITableViewController, QLPreviewControllerDataSource,
     var items = [Song]()
     var selectedItem: Song?
     var savedKeyName = "SavedSongs"
+    var fileExtension: String = "mp3"
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,20 +39,8 @@ class SongsViewController: UITableViewController, QLPreviewControllerDataSource,
     }
 
     @objc func addExampleData() {
-        guard let sourceURL = Bundle.main.url(forResource: "example", withExtension: "mp3") else {
-            fatalError("Unable to locate input file")
-        }
-
-        let filename = NSUUID().uuidString + ".mp3"
-        let destURL = Helper.getPathInDocumentsDirectory(filename)
-        let fm = FileManager.default
-
         do {
-            try fm.copyItem(at: sourceURL, to: destURL)         
-            let item = Song(filename: filename)
-            items.append(item)
-            saveData()
-
+            try addItem()
             tableView?.insertRows(at: [IndexPath(item: items.count - 1, section: 0)], with: .automatic)
         } catch {
             print("Failed to create item: \(error.localizedDescription)")

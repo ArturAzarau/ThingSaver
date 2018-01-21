@@ -8,6 +8,6 @@
 
 import Foundation
 
-struct Movie: Codable {
+struct Movie: Codable, Item {
     var filename: String
 }

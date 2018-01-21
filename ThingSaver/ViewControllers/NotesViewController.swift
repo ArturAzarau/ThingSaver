@@ -15,6 +15,7 @@ class NotesViewController: UITableViewController, QLPreviewControllerDataSource,
     var items = [itemType]()
     var selectedItem: itemType?
     var savedKeyName = "SavedNotes"
+    var fileExtension: String = "txt"
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,20 +43,8 @@ class NotesViewController: UITableViewController, QLPreviewControllerDataSource,
     }
 
     @objc func addExampleData() {
-        guard let sourceURL = Bundle.main.url(forResource: "example", withExtension: "txt") else {
-            fatalError("Unable to locate input file")
-        }
-
-        let filename = NSUUID().uuidString + ".txt"
-        let destURL = Helper.getPathInDocumentsDirectory(filename)
-        let fm = FileManager.default
-
         do {
-            try fm.copyItem(at: sourceURL, to: destURL)
-            let item = Note(filename: filename)
-            items.append(item)
-            saveData()
-
+            try addItem()
             tableView?.insertRows(at: [IndexPath(item: items.count - 1, section: 0)], with: .automatic)
         } catch {
             print("Failed to create item: \(error.localizedDescription)")
